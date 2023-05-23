@@ -5,7 +5,10 @@ function App() {
 
   return (
     <>
-      <ButtonComponent />
+    <button onClick={<ButtonComponent/>}>
+            Clique Aqui!
+        </button>
+      
     </>
   )
 }
