@@ -1,19 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
  function ButtonComponent () {
+
     const [click, setClick] = useState([])
- 
-    const clicksCounter = () => {
-        setClick( click + 1 ) 
+
+    function addClick(){
+        setClick([...click, { clickedAt: new Date() }])
     }
 
-    return ( 
-    <>
-        
-        <h3>Você clicou um total de {clicksCounter} vezes </h3>
-          
-        
-    </>
-    );
-}    
+    return(
+        <div >
+            {click.map(() =>(
+                <div key={click}>
+                    <h3>Click número {click.length} na data {addClick.clickedAt}</h3>
+                </div>
+            ))
+        }
+        <button onClick={addClick}>Clique Aqui</button>
+        </div>
+
+    )
+
+}
+    
 export default ButtonComponent;
