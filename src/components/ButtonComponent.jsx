@@ -2,25 +2,22 @@ import { useState } from "react";
 
  function ButtonComponent () {
 
-    const [click, setClick] = useState([])
+    const [clicks, setClicks] = useState([]);
 
-    function addClick(){
-        setClick([...click, { clickedAt: new Date() }])
+    const addClick = () => {
+      setClicks([...clicks, { clickedAt: new Date() }]);
     }
-
-    return(
-        <div >
-            {click.map(() =>(
-                <div key={click}>
-                    <h3>Click número {click.length} na data {addClick.clickedAt}</h3>
-                </div>
-            ))
-        }
-        <button onClick={addClick}>Clique Aqui</button>
-        </div>
-
-    )
-
-}
+  
+    return (
+      <div className="App">
+        {clicks.map((click, index) => (
+          <div>Clique de número {index} na data: {click.clickedAt.toString()}</div>
+        ))}
+        <button onClick={addClick}>
+          click
+        </button>
+      </div>
+    );
+  }
     
 export default ButtonComponent;
